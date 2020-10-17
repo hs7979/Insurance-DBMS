@@ -1,0 +1,13 @@
+<%- include("./partials/header.ejs") %>
+
+<h1>Enter Details of New Customer</h1>
+<form action="/newcustomer" method="POST">
+    <label>Customer SSN:<input type="text" name="_id" required></label>
+    <label>NAME<input type="text" name="c_name" required></label>
+    <label>EMAIL<input type="email" name="email" required></label>
+    <label>Local Address<input type="text" name="c_loc_add" required></label>
+    <label>Region:<input type="text" name="c_region" required></label>
+    <label>Agent:<input type="text" name="emp_id" required value="<%=eid%>"></label>
+    <input type="submit">
+</form>
+<%- include("./partials/footer.ejs") %>

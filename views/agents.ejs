@@ -1,0 +1,8 @@
+<%- include("./partials/header.ejs") %>
+<h1>All Agents</h1>
+
+<% ag.forEach(function(a){ %>
+    <a href="/agent/<%=a._id%>"><%=a.a_name%></a><br>
+<% }) %>
+<a href="/newagent">Create A new Agent</a>
+<%- include("./partials/footer.ejs") %>

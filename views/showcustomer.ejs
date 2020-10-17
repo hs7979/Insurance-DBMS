@@ -1,0 +1,10 @@
+<%- include("./partials/header.ejs") %>
+<h1><%=cu.c_name%></h1>
+<p>Customer SSN: <%=cu._id%></p>
+<p>EMAIL: <%=cu.email%></p>
+<p>Local Address: <%=cu.c_loc_add%></p>
+<p>REGION: <%=cu.c_region%></p>
+<p>Agent Assigned:<a href="/agent/<%=cu.empid.id%>"><%=cu.empid.id%></a></p>
+
+<a href="/nominee/<%=cu._id%>">Show Nominee Details</a>
+<%- include("./partials/footer.ejs") %>

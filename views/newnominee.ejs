@@ -1,0 +1,14 @@
+<%- include("./partials/header.ejs") %>
+
+<h1>Enter Details of New Nominee</h1>
+<form action="/newnominee" method="POST">
+    <label>Nominee SSN:<input type="text" name="_id" required></label>
+    <label>NAME<input type="text" name="n_name" required></label>
+    <label>EMAIL<input type="email" name="email" required></label>
+    <label>Local Address<input type="text" name="n_loc_add" required></label>
+    <label>Region:<input type="text" name="n_region" required></label>
+    <label>Agent:<input type="text" name="c_ssn" required value="<%=cid%>"></label>
+    <input type="submit">
+</form>
+
+<%- include("./partials/footer.ejs") %>

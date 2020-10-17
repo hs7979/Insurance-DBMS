@@ -1,0 +1,9 @@
+<%- include("./partials/header.ejs") %>
+
+<h1>All Customers:</h1>
+
+<% cu.forEach((c)=>{%>
+ <a href="/customer/<%=c._id%>"><%=c.c_name%></a><br>
+    <%})%>
+
+<%- include("./partials/footer.ejs") %>

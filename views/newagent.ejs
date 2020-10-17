@@ -1,0 +1,12 @@
+<%- include("./partials/header.ejs") %>
+<h1> Add A New Agent to the Company</h1>
+
+<form action="/newagent" method="POST">
+    <label>EMPLOYEE ID:<input type="text" name="_id" required></label>
+    <label>NAME<input type="text" name="a_name" required></label>
+    <label>EMAIL<input type="email" name="email" required></label>
+    <label>Local Address<input type="text" name="a_loc_add" required></label>
+    <label>Region:<input type="text" name="a_region" required></label>
+    <input type="submit">
+</form>
+<%- include("./partials/footer.ejs") %>
