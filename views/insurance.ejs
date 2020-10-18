@@ -1,0 +1,8 @@
+<%- include("./partials/header.ejs") %>
+<h1>All Insurance Policies</h1>
+
+<% In.forEach(function(I){ %>
+    <a href="/agent/<%=I._id%>"><%=I._id%></a><br>
+<% }) %>
+
+<%- include("./partials/footer.ejs") %>

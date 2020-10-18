@@ -1,10 +1,13 @@
-var express = require ("express"),
-    mongoose = require("mongoose"),
+var express        = require ("express"),
+    mongoose       = require("mongoose"),
     methodOverride = require("method-override"),
-    Agent = require("./models/Agent"),
-    Customer = require("./models/Customer"),
-    Nominee = require("./models/Nominee"),
-    bodyParser = require("body-parser");
+    Agent          = require("./models/Agent"),
+    Customer       = require("./models/Customer"),
+    Nominee        = require("./models/Nominee"),
+    Insurance      = require("./models/Insurance"),
+    Health         = require("./models/Health"),
+    Travel         = require("./models/Travel"),
+    bodyParser     = require("body-parser");
 
 var app = express();
 
@@ -117,7 +120,24 @@ app.post("/newnominee",(req,res)=>{
             res.redirect("/customers");
         }
     })
+});
+//===========
+//Insurance
+//===========
+app.get("/insurance",(req,res)=>{
+    var In = Insurance.find();
+    res.render("insurance",{In});
+});
+app.get("/insurance/:id",(req,res)=>{
+    var In = Insurance.findById(req.params.id);
+    var Hi = Health.findById(req.params.id);
+    var Ti = Travel.findById(req.params.id);
+    res.render("showinsurance",{In,Hi,Ti});
 })
+
+
+
+
 app.listen("3000",()=>{
     console.log("server started");
 })
