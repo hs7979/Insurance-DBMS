@@ -1,0 +1,14 @@
+<%- include("./partials/header.ejs") %>
+
+<h1>Enter Details of New Insurance</h1>
+<form action="/newinsurance/<%=t%>" method="POST">
+    <label>Insurance Id:<input type="text" name="_id" required></label><br>
+    <label>Premium:<input type="text" name="premium" required></label><br>
+    <label>Issue Date:<input type="date" name="issue" required></label><br>
+    <label>Expiry Date:<input type="date" name="expiry" required></label><br>
+    <label>Customer SSN:<input type="text" name="cssn" required value="<%=c%>"></label><br>
+    <label>Agent:<input type="text" name="emp_id" required value="<%=a%>"></label><br>
+    <input type="submit">
+</form>
+
+<%- include("./partials/footer.ejs") %>

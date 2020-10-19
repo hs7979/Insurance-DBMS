@@ -6,7 +6,7 @@ var HealthSchema = new mongoose.Schema({
         ref:"Insurance",
         required: true
     },
-    BMI:Number,
+    BMI:String,
     gen_dis: String,
     gen_phys: String
 });

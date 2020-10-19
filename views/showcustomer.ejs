@@ -5,6 +5,10 @@
 <p>Local Address: <%=cu.c_loc_add%></p>
 <p>REGION: <%=cu.c_region%></p>
 <p>Agent Assigned:<a href="/agent/<%=cu.empid.id%>"><%=cu.empid.id%></a></p>
+<br>
+<a href="/nominee/<%=cu._id%>">Show Nominee Details</a><br>
+<hr>
+<a href="/newinsurance/<%=cu._id%>/health">Add a Health Insurance Policy</a><br>
+<a href="/newinsurance/<%=cu._id%>/travel">Add a Travel Insurance Policy</a>
 
-<a href="/nominee/<%=cu._id%>">Show Nominee Details</a>
 <%- include("./partials/footer.ejs") %>

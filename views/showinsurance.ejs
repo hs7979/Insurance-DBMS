@@ -1,0 +1,19 @@
+<%- include("./partials/header.ejs") %>
+
+<h1>Policy Details:</h1>
+<p>Insurance Id:<%=In._id%></p>
+<p>Customer:<a href="/customer/<%=In.cssn.id%>"><%=In.cssn.id%></a></p>
+<p>Agent:<a href="/agent/<%=In.empid.id%>"><%=In.empid.id%></a></p>
+<p>Premium: Rs. <%=In.premium%></p>
+<p>Issue Date: <%=In.issue%></p>
+<p>Expiry Date: <%=In.expiry%></p>
+<% if(Ti==null){%>
+<p>BMI: <%=Hi.BMI%></p>
+<p>Medical History: <%=Hi.gen_dis%></p>
+<p>General Physician: <%=Hi.gen_phys%></p>
+<% }else{%>
+<p>Mode of Travel: <%=Ti.mode%></p>
+<p>Travelling To: <%=Ti.i_region%></p>
+<p>Duration of Travel: <%=Ti.duration%></p>
+<%}%>
+<%- include("./partials/footer.ejs") %>

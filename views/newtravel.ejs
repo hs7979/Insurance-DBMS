@@ -1,0 +1,12 @@
+<%- include("./partials/header.ejs") %>
+
+<h1>Enter Details for Health Insurance</h1>
+<form action="/<%=t%>" method="POST">
+    <label>Insurance Id:<input type="text" name="_id" required value="<%=i%>"></label><br>
+    <label>Mode:<input type="text" name="mode" required></label><br>
+    <label>Region:<input type="text" name="i_region" required></label><br>
+    <label>Duration:<input type="text" name="duration" required ></label><br>
+    <input type="submit">
+</form>
+
+<%- include("./partials/footer.ejs") %>

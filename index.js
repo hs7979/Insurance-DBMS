@@ -124,20 +124,76 @@ app.post("/newnominee",(req,res)=>{
 //===========
 //Insurance
 //===========
-app.get("/insurance",(req,res)=>{
-    var In = Insurance.find();
+app.get("/insurance",async (req,res)=>{
+    const In = await Insurance.find({});
     res.render("insurance",{In});
 });
-app.get("/insurance/:id",(req,res)=>{
-    var In = Insurance.findById(req.params.id);
-    var Hi = Health.findById(req.params.id);
-    var Ti = Travel.findById(req.params.id);
+app.get("/insurance/:id",async (req,res)=>{
+    const In = await Insurance.findById(req.params.id);
+    const Hi = await Health.findById(req.params.id);
+    const Ti = await Travel.findById(req.params.id);
     res.render("showinsurance",{In,Hi,Ti});
+});
+app.get("/newinsurance/:cssn/:type", async (req,res)=>{
+    var t = req.params.type;
+    var c = req.params.cssn;
+    const Cust = await Customer.findById(req.params.cssn);
+    var a = Cust.empid.id;
+    res.render("newinsurance",{t,c,a});
 })
-
-
-
-
+app.post("/newinsurance/:type",async (req,res)=>{
+    var _id = req.body._id,
+        premium = req.body.premium,
+        issue = req.body.issue,
+        expiry = req.body.expiry,
+        cssn= {id:req.body.cssn},
+        empid= {id:req.body.emp_id};
+    var Ins = {_id,premium,issue,expiry,cssn,empid};
+    Insurance.create(Ins,(err,I)=>{
+        if(err){
+            console.log(err);
+        }else{
+            if(req.params.type == "health"){
+                res.redirect("/newi/health/"+_id);
+            }else{
+                res.redirect("/newi/travel/"+_id);
+            }
+        }
+    })
+})
+app.get("/newi/:type/:id", (req,res)=>{
+    var t = req.params.type;
+    var i = req.params.id;
+    res.render("new"+t,{i,t});
+})
+app.post("/health", async(req,res)=>{
+    var _id = req.body._id,
+        BMI = req.body.bmi,
+        gen_dis = req.body.gen_dis,
+        gen_phys = req.body.gen_phys;
+    var he = {_id,BMI,gen_dis,gen_phys};
+    Health.create(he,(err,h)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/");
+        }
+    })
+})
+app.post("/travel", async(req,res)=>{
+    var _id = req.body._id,
+        mode = req.body.mode,
+        i_region = req.body.i_region,
+        duration = req.body.duration;
+    var ti = {_id,mode,i_region,duration};
+    Travel.create(ti,(err,t)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/");
+        }
+    })
+})
 app.listen("3000",()=>{
     console.log("server started");
 })
