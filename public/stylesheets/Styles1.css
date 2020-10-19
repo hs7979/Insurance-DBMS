@@ -1,0 +1,55 @@
+@font-face {
+    font-family: BebasNeue;
+    src: url(../fonts/BebasNeue/OTF/BebasNeue-Regular.otf);
+  }
+html {
+    height:100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI";
+    scroll-behavior: smooth;
+}
+body{
+    background-color:black;
+    min-height: 100%;
+    display:flex;
+    flex-direction:column;
+}
+#nav{
+    border-radius: 16px;
+}
+h1{
+    font-family: BebasNeue;
+    color: darkgoldenrod;
+    font-size: 50px;
+}
+#caro{
+    width:100%;
+}
+.TitleC{
+    padding: 30px 10px ;
+	height:250px;
+    background: #075475;
+    border-radius: 20px;
+    width: 200px;
+    height: 250px;
+    text-align: center;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+}
+#wel{
+    text-align: center;
+}
+.mainLinks{
+    font-family: BebasNeue;
+    color: #ffffff;
+    font-size: 40px;
+}
+footer{
+    margin-top:auto;
+    background-color: #4b4b4b;
+    padding: 50px 10%;
+    color: white;
+    display: flex;
+}
