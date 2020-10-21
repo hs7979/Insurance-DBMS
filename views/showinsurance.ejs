@@ -1,19 +1,33 @@
 <%- include("./partials/header.ejs") %>
-
+<br>
 <h1>Policy Details:</h1>
-<p>Insurance Id:<%=In._id%></p>
-<p>Customer:<a href="/customer/<%=In.cssn.id%>"><%=In.cssn.id%></a></p>
-<p>Agent:<a href="/agent/<%=In.empid.id%>"><%=In.empid.id%></a></p>
-<p>Premium: Rs. <%=In.premium%></p>
-<p>Issue Date: <%=In.issue%></p>
-<p>Expiry Date: <%=In.expiry%></p>
-<% if(Ti==null){%>
-<p>BMI: <%=Hi.BMI%></p>
-<p>Medical History: <%=Hi.gen_dis%></p>
-<p>General Physician: <%=Hi.gen_phys%></p>
-<% }else{%>
-<p>Mode of Travel: <%=Ti.mode%></p>
-<p>Travelling To: <%=Ti.i_region%></p>
-<p>Duration of Travel: <%=Ti.duration%></p>
-<%}%>
+<br>
+<div class="container">
+    <div class="col" class="dispblock">
+        <div class="dispblock">
+            <% if(Ti==null){%>
+                <h3>Health Insurance</h3>
+                <%}else{%>
+                    <h3>Travel Insurance</h3>
+                    <%}%>
+            <p>Insurance Id: <%=In._id%></p>
+            <p>Customer: <a href="/customer/<%=In.cssn.id%>"><%=In.cssn.id%></a></p>
+            <p>Agent: <a href="/agent/<%=In.empid.id%>"><%=In.empid.id%></a></p>
+            <p>Premium: Rs. <%=In.premium%></p>
+            <p>Issue Date: <%=In.issue.toDateString()%></p>
+            <p>Expiry Date: <%=In.expiry.toDateString()%></p>
+            <% if(Ti==null){%>
+            <p>BMI: <%=Hi.BMI%></p>
+            <p>Medical History: <%=Hi.gen_dis%></p>
+            <p>General Physician: <%=Hi.gen_phys%></p>
+            <% }else{%>
+            <p>Mode of Travel: <%=Ti.mode%></p>
+            <p>Travelling To: <%=Ti.i_region%></p>
+            <p>Duration of Travel: <%=Ti.duration%></p>
+            <%}%>
+        </div>
+    </div>
+</div>
+<br>
+
 <%- include("./partials/footer.ejs") %>

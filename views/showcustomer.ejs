@@ -1,14 +1,22 @@
 <%- include("./partials/header.ejs") %>
-<h1><%=cu.c_name%></h1>
-<p>Customer SSN: <%=cu._id%></p>
-<p>EMAIL: <%=cu.email%></p>
-<p>Local Address: <%=cu.c_loc_add%></p>
-<p>REGION: <%=cu.c_region%></p>
-<p>Agent Assigned:<a href="/agent/<%=cu.empid.id%>"><%=cu.empid.id%></a></p>
 <br>
-<a href="/nominee/<%=cu._id%>">Show Nominee Details</a><br>
-<hr>
-<a href="/newinsurance/<%=cu._id%>/health">Add a Health Insurance Policy</a><br>
-<a href="/newinsurance/<%=cu._id%>/travel">Add a Travel Insurance Policy</a>
+<h1>Customer Details:</h1>
+<div class="container">
+    <div class="col" class="dispblock">
+        <div class="dispblock">
+            <h3>Name:<%=cu.c_name%></h3>
+            <p>Customer SSN: <%=cu._id%></p>
+            <p>EMAIL: <%=cu.email%></p>
+            <p>Local Address: <%=cu.c_loc_add%></p>
+            <p>REGION: <%=cu.c_region%></p>
+            <p>Agent Assigned: <a href="/agent/<%=cu.empid.id%>"><%=cu.empid.id%></a></p>
+        </div>
+    </div>
+</div>
+<br>
+<a class="btn btn-outline-info"style="align-self:center;color:azure;" href="/nominee/<%=cu._id%>">Show Nominee Details</a><br>
 
+<a class="btn btn-outline-info"style="align-self:center;color:azure;" href="/newinsurance/<%=cu._id%>/health">Add a Health Insurance Policy</a><br>
+<a class="btn btn-outline-info"style="align-self:center;color:azure;" href="/newinsurance/<%=cu._id%>/travel">Add a Travel Insurance Policy</a>
+<br>
 <%- include("./partials/footer.ejs") %>

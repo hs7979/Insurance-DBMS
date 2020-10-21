@@ -1,14 +1,51 @@
 <%- include("./partials/header.ejs") %>
 
 <h1>Enter Details of New Nominee</h1>
-<form action="/newnominee" method="POST">
-    <label>Nominee SSN:<input type="text" name="_id" required></label>
-    <label>NAME<input type="text" name="n_name" required></label>
-    <label>EMAIL<input type="email" name="email" required></label>
-    <label>Local Address<input type="text" name="n_loc_add" required></label>
-    <label>Region:<input type="text" name="n_region" required></label>
-    <label>Agent:<input type="text" name="c_ssn" required value="<%=cid%>"></label>
-    <input type="submit">
-</form>
+<div class="container">
+    <div class="col">
+        <div class="formblock">
+            <form action="/newnominee" method="POST">
+                <div class="form-group row">
+                    <label for="n1" class="col-sm-2 col-form-label">NOMINEE SSN: </label>
+                    <div class="col-6">
+                        <input id="n1" class="form-control" type="text" name="_id" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="n2" class="col-sm-2 col-form-label">NAME: </label>
+                    <div class="col-6">
+                        <input id="n2" class="form-control" type="text" name="n_name" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="n3" class="col-sm-2 col-form-label">E-MAIL: </label>
+                    <div class="col-6">
+                        <input id="n3" class="form-control" type="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="n4" class="col-sm-2 col-form-label">LOCAL ADDRESS: </label>
+                    <div class="col-6">
+                        <input id="n4" class="form-control" type="text" name="n_loc_add" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="n5" class="col-sm-2 col-form-label">REGION: </label>
+                    <div class="col-6">
+                        <input id="n5" class="form-control" type="text" name="n_region" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="n6" class="col-sm-2 col-form-label">CUSTOMER:</label>
+                    <div class="col-6">
+                        <input id="n6" class="form-control" type="text" name="c_ssn" required value="<%=cid%>">
+                    </div>
+                </div>
+                <input class="btn btn-primary" type="submit">
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <%- include("./partials/footer.ejs") %>

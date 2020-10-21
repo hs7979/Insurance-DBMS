@@ -1,8 +1,18 @@
 <%- include("./partials/header.ejs") %>
-<h1><%=ag.a_name%></h1>
-<p>EMPLOYEE ID: <%=ag._id%></p>
-<p>EMAIL: <%=ag.email%></p>
-<p>Local Address: <%=ag.a_loc_add%></p>
-<p>REGION: <%=ag.a_region%></p>
-<a href="/newcustomer/<%=ag._id%>">Add a New Customer for this Agent</a>
+<br>
+<h1>Agent Details:</h1>
+<div class="container">
+    <div class="col" class="dispblock">
+        <div class="dispblock">
+            <h3><%=ag.a_name%></h3>
+            <p>EMPLOYEE ID: <%=ag._id%></p>
+            <p>EMAIL: <%=ag.email%></p>
+            <p>Local Address: <%=ag.a_loc_add%></p>
+            <p>REGION: <%=ag.a_region%></p>
+        </div>
+    </div>
+</div>
+<br>
+
+<a class="btn btn-outline-info"style="align-self:center;color:azure;" href="/newcustomer/<%=ag._id%>">Add a New Customer for this Agent</a>
 <%- include("./partials/footer.ejs") %>

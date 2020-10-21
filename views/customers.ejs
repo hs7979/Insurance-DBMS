@@ -1,9 +1,20 @@
 <%- include("./partials/header.ejs") %>
 
-<h1>All Customers:</h1>
+<h1 id="wel">All Customers</h1>
 
-<% cu.forEach((c)=>{%>
- <a href="/customer/<%=c._id%>"><%=c.c_name%></a><br>
-    <%})%>
+<div class= "container">
+    <div class="row">
+        <% cu.reverse().forEach((c)=>{ %>
+            <div class="col-sm">
+                <div class="card TitleA">
+                    <a class="mainLinks" href="/customer/<%=c._id%>"><%=c.c_name%></a>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+</div>
+<br>
+ 
+
 
 <%- include("./partials/footer.ejs") %>

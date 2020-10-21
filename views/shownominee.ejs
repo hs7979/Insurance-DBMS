@@ -1,7 +1,18 @@
 <%- include("./partials/header.ejs") %>
-<h1><%=nn.n_name%></h1>
-<p>Nominee SSN: <%=nn._id%></p>
-<p>EMAIL: <%=nn.email%></p>
-<p>Local Address: <%=nn.n_loc_add%></p>
-<p>REGION: <%=nn.n_region%></p>
+<br>
+<h1>Customer Details:</h1>
+<div class="container">
+    <div class="col" class="dispblock">
+        <div class="dispblock">
+            <h3><%=nn.n_name%></h3>
+            <p>Nominee SSN: <%=nn._id%></p>
+            <p>EMAIL: <%=nn.email%></p>
+            <p>Local Address: <%=nn.n_loc_add%></p>
+            <p>REGION: <%=nn.n_region%></p>
+        </div>
+    </div>
+</div>
+<br>
+
+
 <%- include("./partials/footer.ejs") %>

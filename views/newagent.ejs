@@ -1,12 +1,44 @@
 <%- include("./partials/header.ejs") %>
 <h1> Add A New Agent to the Company</h1>
+<div class="container">
+    <div class="col">
+        <div class="formblock">
+            <form action="/newagent" method="POST">
+                <div class="form-group row">
+                    <label for="a1" class="col-sm-2 col-form-label">EMPLOYEE ID:</label>
+                    <div class="col-6">
+                        <input id="a1" class="form-control" type="text" name="_id" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="a2" class="col-sm-2 col-form-label">NAME: </label>
+                    <div class="col-6">
+                        <input id="a2" class="form-control" type="text" name="a_name" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="a3" class="col-sm-2 col-form-label">E-MAIL: </label>
+                    <div class="col-6">
+                        <input id="a3" class="form-control" type="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="a4" class="col-sm-2 col-form-label">LOCAL ADDRESS: </label>
+                    <div class="col-6">
+                        <input id="a4" class="form-control" type="text" name="a_loc_add" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="a5" class="col-sm-2 col-form-label">REGION: </label>
+                    <div class="col-6">
+                        <input id="a5" class="form-control" type="text" name="a_region" required>
+                    </div>
+                </div>
+                <input class="btn btn-primary" type="submit">
+            </form>
+        </div>
+    </div>
+</div>
 
-<form action="/newagent" method="POST">
-    <label>EMPLOYEE ID:<input type="text" name="_id" required></label>
-    <label>NAME<input type="text" name="a_name" required></label>
-    <label>EMAIL<input type="email" name="email" required></label>
-    <label>Local Address<input type="text" name="a_loc_add" required></label>
-    <label>Region:<input type="text" name="a_region" required></label>
-    <input type="submit">
-</form>
+
 <%- include("./partials/footer.ejs") %>

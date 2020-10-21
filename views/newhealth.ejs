@@ -1,12 +1,40 @@
 <%- include("./partials/header.ejs") %>
 
 <h1>Enter Details for Health Insurance</h1>
-<form action="/<%=t%>" method="POST">
-    <label>Insurance Id:<input type="text" name="_id" required value="<%=i%>"></label><br>
-    <label>BMI:<input type="text" name="bmi" required></label><br>
-    <label>Genetic Disease/History:<input type="text" name="gen_dis" required></label><br>
-    <label>General Physician:<input type="text" name="gen_phys" required ></label><br>
-    <input type="submit">
-</form>
+<div class="container">
+    <div class="col">
+        <div class="formblock">
+            <form action="/<%=t%>" method="POST">
+                <div class="form-group row">
+                    <label for="h1" class="col-sm-4 col-form-label">INSURANCE ID: </label>
+                    <div class="col-6">
+                        <input id="h1" class="form-control" type="text" name="_id" required value="<%=i%>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="h2" class="col-sm-4 col-form-label">BMI: </label>
+                    <div class="col-6">
+                        <input id="h2" class="form-control" type="text" name="bmi" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="h3" class="col-sm-4 col-form-label">GENETIC DISEASE/HISTORY: </label>
+                    <div class="col-6">
+                        <input id="h3" class="form-control" type="text" name="gen_dis" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="h4" class="col-sm-4 col-form-label">GENERAL PHYSICIAN: </label>
+                    <div class="col-6">
+                        <input id="h4" class="form-control" type="text" name="gen_phys" required>
+                    </div>
+                </div>
+                <input class="btn btn-primary" type="submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+
 
 <%- include("./partials/footer.ejs") %>

@@ -1,14 +1,50 @@
 <%- include("./partials/header.ejs") %>
 
 <h1>Enter Details of New Insurance</h1>
-<form action="/newinsurance/<%=t%>" method="POST">
-    <label>Insurance Id:<input type="text" name="_id" required></label><br>
-    <label>Premium:<input type="text" name="premium" required></label><br>
-    <label>Issue Date:<input type="date" name="issue" required></label><br>
-    <label>Expiry Date:<input type="date" name="expiry" required></label><br>
-    <label>Customer SSN:<input type="text" name="cssn" required value="<%=c%>"></label><br>
-    <label>Agent:<input type="text" name="emp_id" required value="<%=a%>"></label><br>
-    <input type="submit">
-</form>
+<div class="container">
+    <div class="col">
+        <div class="formblock">
+            <form action="/newinsurance/<%=t%>" method="POST">
+                <div class="form-group row">
+                    <label for="i1" class="col-sm-2 col-form-label">INSURANCE ID: </label>
+                    <div class="col-6">
+                        <input id="i1" class="form-control" type="text" name="_id" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="i2" class="col-sm-2 col-form-label">PREMIUM(In Rs.): </label>
+                    <div class="col-6">
+                        <input id="i2" class="form-control" type="text" name="premium" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="i3" class="col-sm-2 col-form-label">ISSUE DATE: </label>
+                    <div class="col-6">
+                        <input id="i3" class="form-control" type="date" name="issue" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="i4" class="col-sm-2 col-form-label">EXPIRY DATE: </label>
+                    <div class="col-6">
+                        <input id="i4" class="form-control" type="date" name="expiry" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="i5" class="col-sm-2 col-form-label">CUSTOMER SSN: </label>
+                    <div class="col-6">
+                        <input id="i5" class="form-control" type="text" name="cssn" required value="<%=c%>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="i6" class="col-sm-2 col-form-label">AGENT:</label>
+                    <div class="col-6">
+                        <input id="i6" class="form-control" type="text" name="emp_id" required value="<%=a%>">
+                    </div>
+                </div>
+                <input class="btn btn-primary" type="submit">
+            </form>
+        </div>
+    </div>
+</div>
 
 <%- include("./partials/footer.ejs") %>
