@@ -1,10 +1,10 @@
 <%- include("./partials/header.ejs") %>
 <br>
-<h1>Customer Details:</h1>
+<h1>Nominee Details:</h1>
 <div class="container">
     <div class="col" class="dispblock">
         <div class="dispblock">
-            <h3><%=nn.n_name%></h3>
+            <h3>NAME: <%=nn.n_name%></h3>
             <p>Nominee SSN: <%=nn._id%></p>
             <p>EMAIL: <%=nn.email%></p>
             <p>Local Address: <%=nn.n_loc_add%></p>
@@ -14,5 +14,6 @@
 </div>
 <br>
 
+<a class="btn btn-outline-info"style="align-self:center;color:azure;" href="/nominee/<%=nn._id%>/edit">Edit Nominee</a>
 
 <%- include("./partials/footer.ejs") %>

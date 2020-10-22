@@ -1,0 +1,44 @@
+<%- include("./partials/header.ejs") %>
+<h1>Edit Agent Details:</h1>
+<div class="container">
+    <div class="col">
+        <div class="formblock">
+            <form action="/agent/<%=ag._id%>/edit?_method=patch" method="POST">
+                <div class="form-group row">
+                    <label for="a1" class="col-sm-2 col-form-label">EMPLOYEE ID:</label>
+                    <div class="col-6">
+                        <input id="a1" class="form-control" type="text" value="<%=ag._id%>" name="_id" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="a2" class="col-sm-2 col-form-label">NAME: </label>
+                    <div class="col-6">
+                        <input id="a2" class="form-control" type="text" value="<%=ag.a_name%>" name="a_name" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="a3" class="col-sm-2 col-form-label">E-MAIL: </label>
+                    <div class="col-6">
+                        <input id="a3" class="form-control" type="email" value="<%=ag.email%>" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="a4" class="col-sm-2 col-form-label">LOCAL ADDRESS: </label>
+                    <div class="col-6">
+                        <input id="a4" class="form-control" type="text" value="<%=ag.a_loc_add%>" name="a_loc_add" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="a5" class="col-sm-2 col-form-label">REGION: </label>
+                    <div class="col-6">
+                        <input id="a5" class="form-control" type="text" value="<%=ag.a_region%>" name="a_region" required>
+                    </div>
+                </div>
+                <input class="btn btn-primary" type="submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<%- include("./partials/footer.ejs") %>

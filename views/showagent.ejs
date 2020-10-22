@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col" class="dispblock">
         <div class="dispblock">
-            <h3><%=ag.a_name%></h3>
+            <h3>NAME: <%=ag.a_name%></h3>
             <p>EMPLOYEE ID: <%=ag._id%></p>
             <p>EMAIL: <%=ag.email%></p>
             <p>Local Address: <%=ag.a_loc_add%></p>
@@ -13,6 +13,7 @@
     </div>
 </div>
 <br>
-
+<a class="btn btn-outline-info"style="align-self:center;color:azure;" href="/agent/<%=ag._id%>/edit">Edit this Agent</a>
+<br>
 <a class="btn btn-outline-info"style="align-self:center;color:azure;" href="/newcustomer/<%=ag._id%>">Add a New Customer for this Agent</a>
 <%- include("./partials/footer.ejs") %>

@@ -11,11 +11,12 @@ var express        = require ("express"),
 
 var app = express();
 
-mongoose.connect("mongodb://localhost/dbmspro",{ useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://localhost/dbmspro",{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false });
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/public'));
+app.use(methodOverride("_method"));
 
 app.get("/", (req,res)=>{
     res.render("home");
@@ -53,6 +54,24 @@ app.post("/newagent",(req,res)=>{
         }
     })
 })
+app.get("/agent/:id/edit",(req,res)=>{
+    Agent.findById(req.params.id,function(err,ag){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("editagent",{ag})
+        }
+    })
+});
+app.patch("/agent/:id/edit",(req,res)=>{
+    Agent.findOneAndUpdate({_id:req.params.id},req.body,(err,nag)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/agent/"+req.params.id);
+        }
+    })
+})
 //====================
 //CUSTOMER AND NOMINEE
 //====================
@@ -71,6 +90,31 @@ app.get("/customer/:id", (req,res)=>{
             console.log(err);
         }else{
             res.render("showcustomer",{cu});
+        }
+    })
+})
+app.get("/customer/:id/edit", (req,res)=>{
+    Customer.findById(req.params.id,function(err,cu){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("editcustomer",{cu});
+        }
+    })
+})
+app.patch("/customer/:id/edit",(req,res)=>{
+    var cssn = req.body._id,
+        n = req.body.c_name,
+        e = req.body.email,
+        l = req.body.c_loc_add;
+        r = req.body.c_region;
+        ag= {id:req.body.emp_id};
+    var newc = {_id:cssn,c_name:n,email:e,c_loc_add:l,c_region:r,empid:ag};
+    Customer.findOneAndUpdate({_id:req.params.id},newc,(err,ec)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/customer/"+req.params.id);
         }
     })
 })
@@ -122,6 +166,31 @@ app.post("/newnominee",(req,res)=>{
         }
     })
 });
+app.get("/nominee/:id/edit",(req,res)=>{
+    Nominee.findById(req.params.id,(err,n)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.render("editnominee",{n});
+        }
+    })
+});
+app.patch("/nominee/:id/edit",(req,res)=>{
+    var nssn = req.body._id,
+        n = req.body.n_name,
+        e = req.body.email,
+        l = req.body.n_loc_add;
+        r = req.body.n_region;
+        cus= {id:req.body.c_ssn};
+    var en = {_id:nssn,n_name:n,email:e,n_loc_add:l,n_region:r,c_ssn:cus};
+    Nominee.findOneAndUpdate({_id:req.params.id},en,(err,nn)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/customers")
+        }
+    })
+})
 //===========
 //Insurance
 //===========

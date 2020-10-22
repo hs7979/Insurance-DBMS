@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col" class="dispblock">
         <div class="dispblock">
-            <h3>Name:<%=cu.c_name%></h3>
+            <h3>Name: <%=cu.c_name%></h3>
             <p>Customer SSN: <%=cu._id%></p>
             <p>EMAIL: <%=cu.email%></p>
             <p>Local Address: <%=cu.c_loc_add%></p>
@@ -13,6 +13,8 @@
         </div>
     </div>
 </div>
+<br>
+<a class="btn btn-outline-info"style="align-self:center;color:azure;" href="/customer/<%=cu._id%>/edit">Edit Customer</a>
 <br>
 <a class="btn btn-outline-info"style="align-self:center;color:azure;" href="/nominee/<%=cu._id%>">Show Nominee Details</a><br>
 
