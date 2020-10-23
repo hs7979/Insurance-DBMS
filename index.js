@@ -12,7 +12,6 @@ var express        = require ("express"),
 var app = express();
 
 // mongoose.connect("mongodb://localhost/dbmspro",{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false });
-mongoose.connect("mongodb+srv://Harshit:ronaldo@ins-dbms.cu4of.mongodb.net/Ins-DBMS?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false });
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
